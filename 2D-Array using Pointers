@@ -1,0 +1,37 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int main() {
+    int a;
+    int rows,cols,i,j;
+    cout<<"Enter rows:";
+    cin>>rows;
+    cout<<"\nEnter columns:";
+    cin>>cols;
+    int *p=&a;
+    int **q=&p;
+    p=(int *)malloc(rows * sizeof(int));
+    for(i=0;i<rows;i++)
+    {
+        *(q+i)=(int *)malloc(cols * sizeof(int));
+    }
+    for(i=0;i<rows;i++)
+    {
+        for(j=0;j<cols;j++)
+        {
+            cout<<"\na["<<i<<"]["<<j<<"] : ";
+            cin>>((q+i)+j);
+        }
+    }
+    cout<<"\nThe matrix is :";
+     for(i=0;i<rows;i++)
+    {
+        for(j=0;j<cols;j++)
+        {
+            cout<<((q+i)+j)<<"\t";
+        }
+        cout<<"\n";
+    }
+	return 0;
+}
